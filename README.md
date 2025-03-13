@@ -1,4 +1,8 @@
+![Alt text](/Reference_Architecture_Diagram.jpg)
+
 # 🚀 Dynamic Web App Deployment on AWS ECS Fargate
+
+---
 
 ## Overview
 
@@ -16,95 +20,95 @@ This project demonstrates the deployment of a dynamic web application using AWS 
 
 2. Creating the Three-Tier VPC Network
 
-Created a VPC.
+- Created a VPC.
 
-Attached an Internet Gateway to the VPC.
+- Attached an Internet Gateway to the VPC.
 
 3. Configuring Public and Private Subnets
 
-Created public and private subnets.
+- Created public and private subnets.
 
-Configured public route tables to enable internet access.
+- Configured public route tables to enable internet access.
 
-Configured private route tables with NAT gateways for external connectivity.
+- Configured private route tables with NAT gateways for external connectivity.
 
 4. Security Groups
 
-Created necessary security groups to control inbound and outbound traffic.
+- Created necessary security groups to control inbound and outbound traffic.
 
 5. Setting Up RDS Database
 
-Created subnet groups.
+- Created subnet groups.
 
-Provisioned a MySQL RDS database instance.
+- Provisioned a MySQL RDS database instance.
 
 6. Application Code Management
 
-Created a GitHub repository.
+- Created a GitHub repository.
 
-Cloned the repo locally and pushed application code.
+- Cloned the repo locally and pushed application code.
 
 7. Docker Setup
 
-Created a repository for storing Docker files.
+- Created a repository for storing Docker files.
 
-Generated a personal access token for GitHub.
+- Generated a personal access token for GitHub.
 
-Developed a LAMP stack Dockerfile with environment variables.
+- Developed a LAMP stack Dockerfile with environment variables.
 
-Used .gitignore to prevent sensitive data leaks.
+- Used .gitignore to prevent sensitive data leaks.
 
-Created a .ps extension script for secure environment variable management.
+- Created a .ps extension script for secure environment variable management.
 
-Built the Docker image.
+- Built the Docker image.
 
 8. Pushing Docker Image to AWS ECR
 
-Created an AWS ECR repository.
+- Created an AWS ECR repository.
 
-Configured IAM user for authentication.
+- Configured IAM user for authentication.
 
-Tagged and pushed the Docker image to ECR.
+- Tagged and pushed the Docker image to ECR.
 
 9. Configuring Bastion Host and SQL Migration
 
-Created a key pair for SSH into EC2 instances.
+- Created a key pair for SSH into EC2 instances.
 
-Deployed a Bastion Host for secure database access.
+- Deployed a Bastion Host for secure database access.
 
-Installed Flyway for SQL migrations.
+- Installed Flyway for SQL migrations.
 
-Set up an SSH tunnel to migrate SQL data into the RDS database.
+- Set up an SSH tunnel to migrate SQL data into the RDS database.
 
 10. Load Balancing and Scaling
 
-Created an Application Load Balancer (ALB).
+- Created an Application Load Balancer (ALB).
 
-Configured a target group for the ALB.
+- Configured a target group for the ALB.
 
 11. Environment File and S3 Storage
 
-Created an environment file.
+- Created an environment file.
 
-Marked it as ignored in Git.
+- Marked it as ignored in Git.
 
-Stored the file securely in an S3 bucket.
+- Stored the file securely in an S3 bucket.
 
-Configured IAM policies for S3 access.
+- Configured IAM policies for S3 access.
 
 12. Deploying the Application on ECS Fargate
 
-Created an ECS cluster.
+- Created an ECS cluster.
 
-Defined an ECS task for containerized application deployment.
+- Defined an ECS task for containerized application deployment.
 
-Configured an ECS service to run Fargate containers.
+- Configured an ECS service to run Fargate containers.
 
-Verified healthy status of deployed instances.
+- Verified healthy status of deployed instances.
 
 13. Domain Configuration
 
-Created an A record to map the domain to the ALB DNS name.
+- Created an A record to map the domain to the ALB DNS name.
 
 ---
 
