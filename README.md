@@ -1,73 +1,114 @@
-#🚀 Host a Dynamic Web App on AWS with Docker, Amazon ECR, and Amazon ECS
+# 🚀 Dynamic Web App Deployment on AWS ECS Fargate
 
-📌 Overview
+## Overview
 
-This project demonstrates how to deploy a dynamic web application on AWS using Docker, Amazon ECR (Elastic Container Registry), and Amazon ECS (Elastic Container Service). The application utilizes a LAMP stack (Linux, Apache, MySQL, PHP) and follows best practices for security and deployment.
+This project demonstrates the deployment of a dynamic web application using AWS ECS Fargate, leveraging a three-tier network architecture.
 
-🔧 Prerequisites
+---
 
-✅ An AWS account
+## Steps Involved
 
-✅ AWS CLI installed and configured
+1. Setting Up SSH Access
 
-✅ Docker installed on your local machine
+Created SSH key pair for secure access to private GitHub repositories.
 
-✅ GitHub account for code storage
+Added the public key to GitHub.
 
-✅ SSH key pair for secure access
+2. Creating the Three-Tier VPC Network
 
-✅ Basic knowledge of AWS services
+Created a VPC.
 
-📜 Deployment Steps
+Attached an Internet Gateway to the VPC.
 
-1️⃣ Set Up SSH Keys
+3. Configuring Public and Private Subnets
 
--- Create an SSH key pair to clone a private GitHub repository.-- Add the public key to GitHub.
+Created public and private subnets.
 
-2️⃣ Create a Three-Tier VPC Network
+Configured public route tables to enable internet access.
 
--- Create a VPC, Internet Gateway, and attach it to the VPC.-- Configure public and private subnets.-- Set up NAT Gateways for private subnet internet access.
+Configured private route tables with NAT gateways for external connectivity.
 
-3️⃣ Configure Security Groups
+4. Security Groups
 
--- Create security groups with appropriate inbound and outbound rules.
+Created necessary security groups to control inbound and outbound traffic.
 
-4️⃣ Set Up RDS Database (MySQL)
+5. Setting Up RDS Database
 
--- Create subnet groups for RDS.-- Launch a MySQL database instance in a private subnet.
+Created subnet groups.
 
-5️⃣ Clone and Push Application Code
+Provisioned a MySQL RDS database instance.
 
--- Clone the GitHub repository locally.-- Push the application code to GitHub.
+6. Application Code Management
 
-6️⃣ Create Docker Configuration
+Created a GitHub repository.
 
--- Write a Dockerfile for the LAMP stack.-- Use .gitignore to prevent sensitive information from being pushed.-- Implement environment variables for security.-- Build the Docker image.
+Cloned the repo locally and pushed application code.
 
-7️⃣ Push Docker Image to Amazon ECR
+7. Docker Setup
 
--- Create an ECR repository.-- Authenticate AWS CLI for ECR access.-- Tag and push the Docker image to ECR.
+Created a repository for storing Docker files.
 
-8️⃣ Set Up Bastion Host and Migrate SQL Data
+Generated a personal access token for GitHub.
 
--- Create an EC2 instance as a Bastion Host for secure access.-- Use SSH tunneling to connect to the RDS instance.-- Install Flyway for database migrations.-- Execute SQL migration scripts.
+Developed a LAMP stack Dockerfile with environment variables.
 
-9️⃣ Configure Load Balancing
+Used .gitignore to prevent sensitive data leaks.
 
--- Create a Target Group.-- Set up an Application Load Balancer (ALB).
+Created a .ps extension script for secure environment variable management.
 
-🔟 Store Environment Variables Securely
+Built the Docker image.
 
--- Use an S3 bucket to store environment variables.-- Assign IAM roles with proper permissions to access S3.
+8. Pushing Docker Image to AWS ECR
 
-1️⃣1️⃣ Deploy the Application on ECS Fargate
+Created an AWS ECR repository.
 
--- Create an ECS cluster.-- Define a task with CPU and memory allocation.-- Deploy the containerized application using ECS Fargate.
+Configured IAM user for authentication.
 
-1️⃣2️⃣ Configure DNS for the Application
+Tagged and pushed the Docker image to ECR.
 
--- Create an A record in Route 53.-- Point it to the ALB DNS name.
+9. Configuring Bastion Host and SQL Migration
 
-🎉 Final Outcome
+Created a key pair for SSH into EC2 instances.
 
-Your dynamic web application will be successfully deployed on AWS ECS Fargate in a serverless manner. 🚀✨
+Deployed a Bastion Host for secure database access.
+
+Installed Flyway for SQL migrations.
+
+Set up an SSH tunnel to migrate SQL data into the RDS database.
+
+10. Load Balancing and Scaling
+
+Created an Application Load Balancer (ALB).
+
+Configured a target group for the ALB.
+
+11. Environment File and S3 Storage
+
+Created an environment file.
+
+Marked it as ignored in Git.
+
+Stored the file securely in an S3 bucket.
+
+Configured IAM policies for S3 access.
+
+12. Deploying the Application on ECS Fargate
+
+Created an ECS cluster.
+
+Defined an ECS task for containerized application deployment.
+
+Configured an ECS service to run Fargate containers.
+
+Verified healthy status of deployed instances.
+
+13. Domain Configuration
+
+Created an A record to map the domain to the ALB DNS name.
+
+---
+
+## Conclusion
+
+The dynamic web application is successfully deployed on AWS ECS Fargate in a serverless manner. 🎉
+
