@@ -10,9 +10,9 @@ This project demonstrates the deployment of a dynamic web application using AWS 
 
 1. Setting Up SSH Access
 
-Created SSH key pair for secure access to private GitHub repositories.
+- Created SSH key pair for secure access to private GitHub repositories.
 
-Added the public key to GitHub.
+- Added the public key to GitHub.
 
 2. Creating the Three-Tier VPC Network
 
